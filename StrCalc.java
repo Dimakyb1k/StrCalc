@@ -30,8 +30,17 @@ public class StrCalc {
         return strResult(s[0].repeat(checkInt(s[2])));
     }
 
-    public static String Minus(String[] s) {
-        return strResult(s[0].replace(s[2],""));
+    public static String Minus(String si) {
+        String [] s = new String[3];
+        for (int i = 0; i < s[1].length(); i++) {
+            if (si.contains(" " + s[i] + " ")) {
+                s[0] =si.substring(0, si.indexOf(" " + s[i] + " "));
+                s[1] = s[i];
+                s[2] = si.substring(s[0].length() + 3, si.length());
+                break;
+            }
+        }
+        return strResult(s[0].replace(s[2], ""));
     }
 
     public static String Del(String[] s) {
